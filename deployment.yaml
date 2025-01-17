@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+      tier: frontend  # Add this label for HPA targeting
+  template:
+    metadata:
+      labels:
+        app: nginx
+        tier: frontend  # Add this label
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80  # Expose port 80 on the container
+        resources:
+          requests:
+            cpu: 100m
+          limits:
+            cpu: 500m
+        
