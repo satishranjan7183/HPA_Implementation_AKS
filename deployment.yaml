@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: nginx-deployment  # This Deployment name will use by HPA
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: nginx
-      tier: frontend  # Add this label for HPA targeting
+      tier: frontend 
   template:
     metadata:
       labels:

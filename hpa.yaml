@@ -6,7 +6,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: nginx-deployment
+    name: nginx-deployment   # This Deployment name will use by HPA to identify deployment
   minReplicas: 1
   maxReplicas: 3
   metrics:
